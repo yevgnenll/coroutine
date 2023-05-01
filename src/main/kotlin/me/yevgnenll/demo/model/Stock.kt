@@ -1,4 +1,4 @@
-package me.yevgnenll.demo
+package me.yevgnenll.demo.model
 
 import org.springframework.data.mongodb.core.mapping.Document
 

@@ -1,8 +1,8 @@
 package me.yevgnenll.demo.service
 
 import kotlinx.coroutines.runBlocking
-import me.yevgnenll.demo.Stock
-import me.yevgnenll.demo.StockRepository
+import me.yevgnenll.demo.model.Stock
+import me.yevgnenll.demo.repository.StockRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
