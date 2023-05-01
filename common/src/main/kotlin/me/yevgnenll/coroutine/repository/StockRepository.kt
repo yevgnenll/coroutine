@@ -1,6 +1,6 @@
-package me.yevgnenll.demo.repository
+package me.yevgnenll.coroutine.repository
 
-import me.yevgnenll.demo.model.Stock
+import me.yevgnenll.coroutine.model.Stock
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Repository
 

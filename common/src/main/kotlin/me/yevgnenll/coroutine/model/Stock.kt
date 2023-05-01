@@ -1,4 +1,4 @@
-package me.yevgnenll.demo.model
+package me.yevgnenll.coroutine.model
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document

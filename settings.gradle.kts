@@ -1,1 +1,4 @@
-rootProject.name = "demo"
+rootProject.name = "coroutine"
+
+include(":common")
+include(":api")
