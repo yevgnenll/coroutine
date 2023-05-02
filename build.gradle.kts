@@ -6,12 +6,16 @@ version = "1.0-SNAPSHOT"
 plugins {
     id("org.springframework.boot") version "2.7.1"
     id("io.spring.dependency-management") version "1.1.0"
+    id("io.spring.nohttp")
+
     kotlin("jvm") version "1.8.0"
     kotlin("plugin.spring") version "1.8.0"
     kotlin("kapt") version "1.8.0"
     kotlin("plugin.jpa") version "1.8.0"
     kotlin("plugin.allopen") version "1.8.0"
     kotlin("plugin.noarg") version "1.8.0"
+
+    kotlin("plugin.serialization") version "1.8.0"
 }
 
 allprojects {
@@ -22,14 +26,21 @@ allprojects {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+
 subprojects {
     apply {
         plugin("org.springframework.boot")
         plugin("io.spring.dependency-management")
         plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.spring")
         plugin("org.jetbrains.kotlin.plugin.allopen")
-        plugin("org.jetbrains.kotlin.plugin.jpa")
-        plugin("org.jetbrains.kotlin.plugin.noarg")
+        plugin("org.jetbrains.kotlin.plugin.serialization")
         plugin("org.jetbrains.kotlin.kapt")
     }
 
@@ -40,11 +51,7 @@ subprojects {
         }
     }
 
-    allOpen {
-        annotation("javax.persistence.Entity")
-        annotation("javax.persistence.MappedSuperclass")
-        annotation("javax.persistence.Embeddable")
-    }
+
 
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
@@ -65,10 +72,4 @@ subprojects {
         testImplementation("io.projectreactor:reactor-test")
     }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "11"
-        }
-    }
 }

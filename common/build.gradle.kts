@@ -3,15 +3,18 @@ plugins {
     id("io.spring.dependency-management")
     kotlin("jvm")
     kotlin("plugin.spring")
-    kotlin("plugin.jpa")
-    kotlin("plugin.allopen")
-    kotlin("plugin.noarg")
     kotlin("kapt")
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_11
 group = "me.yevgnenll"
 version = "1.0-SNAPSHOT"
+
+allOpen {
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.MappedSuperclass")
+    annotation("javax.persistence.Embeddable")
+}
 
 repositories {
     mavenCentral()
